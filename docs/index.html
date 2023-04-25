@@ -16,11 +16,12 @@ function main(){
   slider.min = 0
   slider.step = 0.05
   slider.max = 2
+  slider.value=1.5
   slider.oninput = function(){
     redraw()
   }
-  document.body.appendChild(slider)
-  document.body.appendChild(document.createElement('br'))
+  document.getElementById('page').appendChild(slider)
+  document.getElementById('page').appendChild(document.createElement('br'))
   slider = document.createElement('input')  // slider for y-axis scaling
   slider.type = 'range'
   slider.id = 'yscale'
@@ -31,8 +32,8 @@ function main(){
   slider.oninput = function(){
     redraw()
   }
-  document.body.appendChild(slider)
-  document.body.appendChild(document.createElement('br'))
+  document.getElementById('page').appendChild(slider)
+  document.getElementById('page').appendChild(document.createElement('br'))
   slider = document.createElement('input')  // slider for kernel shape
   slider.type = 'range'
   slider.id = 'kernel'
@@ -40,18 +41,19 @@ function main(){
   slider.min = 0
   slider.step = 0.01
   slider.max = 1
+  slider.value = 0.75
   slider.oninput = function(){
     redraw()
   }
-  document.body.appendChild(slider)
-  document.body.appendChild(document.createElement('br'))
+  document.getElementById('page').appendChild(slider)
+  document.getElementById('page').appendChild(document.createElement('br'))
 
 	cvs = document.createElement('canvas')
   cvs.addEventListener("contextmenu", e => e.preventDefault())
   cvs.width = W
   cvs.height = H
   cvs.style.backgroundColor = 'black'
-  document.body.appendChild(cvs)
+  document.getElementById('page').appendChild(cvs)
 
   ctx = cvs.getContext('2d')
   redraw()
@@ -186,8 +188,8 @@ window.onload = main
 
 </script>
 </head>
-<body>
-<div style="border: 0.05em solid red;width:100%;display: flex;justify-content: center;padding: 10px;">
+<body style="text-align: center;">
+<div style="border: 0.05em solid red;width:50%;display: inline-block;" id="page">
 	<h1>Github Pages Demo</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisici elit, 
 		sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
